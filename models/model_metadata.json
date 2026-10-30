@@ -1,0 +1,180 @@
+{
+  "created_session": "20261029-091223",
+  "quick_run": false,
+  "seed": 42,
+  "test_size": 0.2,
+  "train_rows": 200000,
+  "test_rows": 50000,
+  "split_fingerprint": "726c8219006a6c3a",
+  "growth_rate_assumed": 0.08,
+  "horizon_years": 5,
+  "growth_multiplier": 1.4693280768000005,
+  "regression_target": "Future_Price_5Y_Lakhs",
+  "classification_target": "Good_Investment",
+  "label_rule_file": "phase3_outputs/label_rule.json",
+  "classification": {
+    "model": "CLS primary: Logistic Regression",
+    "input_columns": [
+      "Age_of_Property",
+      "Nearby_Schools",
+      "Nearby_Hospitals",
+      "Has_Clubhouse",
+      "Has_Garden",
+      "Has_Gym",
+      "Has_Playground",
+      "Has_Pool",
+      "City",
+      "Property_Type",
+      "Furnished_Status",
+      "Owner_Type",
+      "Facing"
+    ],
+    "mlflow_run_id": "272236e798cd45cba4bf808d8790fecc",
+    "registered_model": "real_estate_good_investment_classifier",
+    "registered_version": 2,
+    "meets_pre_declared_skill_threshold": false,
+    "skill_threshold_cv_auc": 0.52,
+    "cv": {
+      "cv_roc_auc_mean": 0.4980513651275069,
+      "cv_roc_auc_std": 0.0011295946769806847,
+      "cv_f1_mean": 0.31959674676108946
+    },
+    "test": {
+      "test_accuracy": 0.51138,
+      "test_balanced_accuracy": 0.5005187185357024,
+      "test_precision": 0.23580968280467446,
+      "test_recall": 0.4799932036360547,
+      "test_f1": 0.31625199406677673,
+      "test_roc_auc": 0.5040279754315328,
+      "test_pr_auc": 0.238410746548739
+    },
+    "baseline_test": {
+      "test_accuracy": 0.76458,
+      "test_f1": 0.0,
+      "test_roc_auc": 0.5
+    }
+  },
+  "regression": {
+    "model": "REG primary: Linear Regression",
+    "input_columns": [
+      "Size_in_SqFt",
+      "BHK",
+      "Age_of_Property",
+      "Nearby_Schools",
+      "Nearby_Hospitals",
+      "Has_Clubhouse",
+      "Has_Garden",
+      "Has_Gym",
+      "Has_Playground",
+      "Has_Pool",
+      "City",
+      "Property_Type",
+      "Furnished_Status",
+      "Owner_Type",
+      "Facing",
+      "Parking_Space",
+      "Security",
+      "Availability_Status",
+      "Public_Transport_Accessibility"
+    ],
+    "mlflow_run_id": "4d9636bd3d7b4f2c82c37523eb0f72d2",
+    "registered_model": "real_estate_future_price_scenario_regressor",
+    "registered_version": 2,
+    "meets_pre_declared_skill_threshold": false,
+    "skill_threshold_cv_r2": 0.01,
+    "cv": {
+      "cv_r2_mean": -0.00047529121452982714,
+      "cv_r2_std": 8.700444152436452e-05,
+      "cv_rmse_mean": 207.73684387055084,
+      "cv_mae_mean": 179.95114368259553
+    },
+    "test": {
+      "test_rmse": 207.72964261552926,
+      "test_mae": 179.84332476115904,
+      "test_r2": -0.00037540905491484367,
+      "test_rmse_over_target_std": 1.0001876869142685
+    },
+    "baseline_test": {
+      "test_rmse": 207.69251853204227,
+      "test_mae": 179.82811865972687,
+      "test_r2": -1.7879901112571872e-05
+    }
+  },
+  "locality": {
+    "adopted_classification": false,
+    "adopted_regression": false
+  },
+  "excluded_from_inputs": {
+    "always": [
+      "ID",
+      "State",
+      "Year_Built",
+      "Floor_No",
+      "Total_Floors",
+      "Amenities",
+      "Amenity_Count",
+      "Infra_Score",
+      "Size_per_BHK",
+      "flag_floor_gt_total",
+      "flag_stored_ppsf_zero",
+      "Transport_Level",
+      "Price_per_SqFt",
+      "Price_per_SqFt_exact",
+      "Price_per_SqFt_INR"
+    ],
+    "classification_label_defining": [
+      "Price_in_Lakhs",
+      "Price_per_SqFt",
+      "Price_per_SqFt_exact",
+      "Price_per_SqFt_INR",
+      "Size_in_SqFt",
+      "BHK",
+      "Availability_Status",
+      "Parking_Space",
+      "Security",
+      "Public_Transport_Accessibility",
+      "Transport_Level",
+      "Infra_Score",
+      "Size_per_BHK"
+    ],
+    "regression_price_derived": [
+      "Price_in_Lakhs",
+      "Price_per_SqFt",
+      "Price_per_SqFt_exact",
+      "Price_per_SqFt_INR"
+    ]
+  },
+  "infra_score": "descriptive only; not a model input (components used instead)",
+  "library_versions": {
+    "python": "3.14.2",
+    "pandas": "3.1.0",
+    "numpy": "2.5.4",
+    "scikit_learn": "1.8.0",
+    "mlflow": "3.17.2",
+    "xgboost": "3.4.1"
+  },
+  "allowed_claims": [
+    "Estimates of price after 5 YEARS UNDER AN ASSUMED 8% annual growth scenario.",
+    "A rule-based indicator of whether a property meets a documented value-and-quality screen."
+  ],
+  "NOT_allowed_claims": [
+    "Predicts actual investment returns or profitability.",
+    "Forecasts verified future market prices.",
+    "The 'Good Investment' label proves a property is a good buy."
+  ],
+  "disclaimer": "Targets are constructed from assumptions. Scores measure how well a rule or an assumed growth rate is recovered, not real-world investment outcomes.",
+  "environment": {
+    "python_executable": "C:\\Users\\Nandini\\Desktop\\Prime\\Real-Estate-Investment-Advisor\\.venv\\Scripts\\python.exe",
+    "python": "3.14.2",
+    "scikit_learn": "1.8.0",
+    "xgboost": "3.4.1",
+    "pandas": "3.1.0",
+    "numpy": "2.5.4",
+    "required_sklearn_pin": "1.8.0",
+    "strict_environment": true
+  },
+  "model_family": {
+    "uses_xgboost": false,
+    "fallback_used": false
+  }
+}

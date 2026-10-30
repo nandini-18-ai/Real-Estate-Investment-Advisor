@@ -1,0 +1,12 @@
+# Real Estate Investment Advisor - runtime dependencies (what the Streamlit app and a deployment need)
+# scikit-learn is pinned EXACTLY: saved model files must be loaded with the version that saved them.
+# xgboost>=3.1.3 is the first release with scikit-learn 1.8 compatibility fixes.
+# Reproducible lock: after a successful run execute   python -m pip freeze > requirements-lock.txt   and keep that file.
+streamlit>=1.35,<2
+scikit-learn==1.8.0
+xgboost>=3.1.3,<4
+pandas>=2.2,<4
+numpy>=1.26,<3
+joblib>=1.4,<2
+matplotlib>=3.8,<4
+seaborn>=0.13,<1

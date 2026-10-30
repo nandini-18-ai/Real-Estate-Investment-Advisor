@@ -1,0 +1,3 @@
+task,metric,without,with_locality,mean_gain,fold_gains,required_gain,adopted
+classification,CV ROC AUC,0.4980513651275069,0.4979649871815552,-8.63779459517507e-05,"[-0.0003, 0.0, 0.0]",0.01,False
+regression,CV R2,-0.00047529121452982714,-0.00048589804809795467,-1.0606833568127527e-05,"[0.0, 0.0, -0.0]",0.005,False

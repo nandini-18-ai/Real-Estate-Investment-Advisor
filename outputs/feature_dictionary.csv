@@ -1,0 +1,33 @@
+feature,origin,decision,reason
+ID,original,EXCLUDE,Identifier only
+State,original,EDA only,City already determines State (redundant)
+City,original,RETAIN,42 levels; one-hot encode later
+Locality,original,EDA only,500 labels repeated in every city; no geographic meaning
+Property_Type,original,RETAIN,
+BHK,original,RETAIN,Not for classification label-defining use (see Section 8)
+Size_in_SqFt,original,RETAIN,Mechanically linked to price per sqft
+Price_in_Lakhs,original,TARGET BASIS / EXCLUDE from features,Both targets would be built from it -> leakage if used as input
+Price_per_SqFt,original,EXCLUDE,"Rounded (100 values), 1.01% zeros; derived from Price/Size"
+Price_per_SqFt_exact,derived (cleaning),EDA / label construction only,Price/Size; leaks the price if used as a feature
+Price_per_SqFt_INR,derived,EDA only,"exact value x 100,000 (assumes rupees)"
+Year_Built,original,EDA only,Redundant with Age_of_Property
+Age_of_Property,original,RETAIN,= 2025 - Year_Built (reference year 2025)
+Furnished_Status,original,RETAIN,
+Floor_No,original,EXCLUDE from features,Contradicts Total_Floors in ~46.5% of rows
+Total_Floors,original,EXCLUDE from features,As above
+flag_floor_gt_total,derived (cleaning),EDA / documentation,Marks impossible floor records
+flag_stored_ppsf_zero,derived (cleaning),EDA / documentation,Marks rounding-to-zero rows
+Nearby_Schools,original,RETAIN,1-10 count/rating
+Nearby_Hospitals,original,RETAIN,1-10 count/rating
+Public_Transport_Accessibility,original,RETAIN,Ordinal Low<Medium<High
+Transport_Level,derived,RETAIN (encoded form),0/1/2 version of the column above
+Parking_Space,original,RETAIN,Yes/No
+Security,original,RETAIN,Yes/No
+Amenities,original,EXCLUDE raw text,Replaced by the Has_* flags and Amenity_Count
+Has_<amenity> x5,derived,RETAIN,"Clubhouse, Garden, Gym, Playground, Pool"
+Amenity_Count,derived,RETAIN,Number of amenities (1-5)
+Facing,original,RETAIN,
+Owner_Type,original,RETAIN,
+Availability_Status,original,RETAIN (caution),Contradicts Year_Built for Under_Construction rows
+Infra_Score,derived,EDA; optional feature,Schools + Hospitals + Transport_Level; our own index
+Size_per_BHK,derived,EDA only,Size / BHK

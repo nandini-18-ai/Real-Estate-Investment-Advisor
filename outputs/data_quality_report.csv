@@ -1,0 +1,10 @@
+issue,rows_affected,pct_of_rows,proposed_treatment
+Floor_No > Total_Floors (logically impossible),116304,46.52,KEEP rows; add flag column; exclude Floor_No/Total_Floors from model features (cannot be repaired)
+Houses/Villas with Floor_No > 0,161644,64.66,KEEP; floor columns not trusted for non-apartments
+Stored Price_per_SqFt rounded to 2 decimals (only 100 distinct values),250000,100.0,KEEP original; create exact Price_per_SqFt_exact = Price/Size and use that for analysis
+Stored Price_per_SqFt equals 0 (rounding artifact),2534,1.01,KEEP; replaced by exact ratio; flag column added
+"Stored Price_per_SqFt differs from round(Price/Size, 2)",21,0.01,KEEP; negligible (rounding ties)
+Under_Construction properties with a past Year_Built (all have Year_Built <= 2023),125035,50.01,KEEP; do not use Availability_Status together with Age as if both were reliable; document
+Under 200 sqft per BHK (implausibly cramped),10080,4.03,KEEP; threshold is a judgement call; size_per_bhk derived for EDA only
+IQR outliers in stored Price_per_SqFt (all on the high side),20020,8.01,KEEP; they come from dividing by small sizes; analyse on a log scale; do not cap or delete
+IQR outliers in exact Price/Size,19723,7.89,KEEP; same reason

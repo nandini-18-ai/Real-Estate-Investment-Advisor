@@ -1,0 +1,9 @@
+step,action,rows_changed
+5.1,Stripped leading/trailing spaces in all text columns,0
+5.2,No missing values found - no imputation needed,0
+5.3,No duplicate rows found - nothing dropped,0
+5.4,"Checked category spellings - no duplicates in spelling, no renaming required",0
+5.5,Added Price_per_SqFt_exact (original column kept),250000
+5.5,Added flag_floor_gt_total,116304
+5.5,Added flag_stored_ppsf_zero,2534
+5.6,"Investigated price/sqft outliers - kept all rows (they are arithmetic results of small sizes, not errors)",0

@@ -1,0 +1,24 @@
+{
+  "input_columns": [
+    "Size_in_SqFt",
+    "BHK",
+    "Age_of_Property",
+    "Nearby_Schools",
+    "Nearby_Hospitals",
+    "Has_Clubhouse",
+    "Has_Garden",
+    "Has_Gym",
+    "Has_Playground",
+    "Has_Pool",
+    "City",
+    "Property_Type",
+    "Furnished_Status",
+    "Owner_Type",
+    "Facing",
+    "Parking_Space",
+    "Security",
+    "Availability_Status",
+    "Public_Transport_Accessibility",
+    "Locality"
+  ]
+}

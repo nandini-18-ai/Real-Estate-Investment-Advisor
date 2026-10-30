@@ -1,0 +1,7 @@
+task,slice,rows,metric,value
+classification,consistent floors,26822,ROC AUC,0.4967256139316456
+regression,consistent floors,26822,R²,-0.0002906135500186924
+regression,consistent floors,26822,RMSE (lakhs),207.4630086467444
+classification,impossible floors (flagged),23178,ROC AUC,0.5124079044258144
+regression,impossible floors (flagged),23178,R²,-0.0004878817655884493
+regression,impossible floors (flagged),23178,RMSE (lakhs),208.0377697097114

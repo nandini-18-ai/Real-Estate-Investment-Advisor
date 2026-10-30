@@ -1,0 +1,27 @@
+check,status,detail
+11 numeric + 12 text columns (as in Phase 1),PASS,"found 11 numeric, 12 text"
+No missing values in any column,PASS,
+No duplicate rows,PASS,
+ID is unique,PASS,
+"Price_per_SqFt = round(Price/Size, 2) for >99.9% of rows",PASS,
+Age_of_Property = 2025 - Year_Built in every row,PASS,
+Original data unchanged (df_raw equals a fresh reload of the CSV),PASS,
+Original 23 columns unchanged inside df_clean,PASS,
+No future-price column exists,PASS,
+No good-investment label exists,PASS,
+"Shape is 250,000 x 23",PASS,"(250000, 23)"
+Missing cells = 0,PASS,
+Duplicate rows = 0,PASS,
+"Floor_No > Total_Floors = 116,304 rows (Phase 1)",PASS,"found 116,304"
+"Under_Construction = 125,035 rows (Phase 1)",PASS,
+"Stored Price_per_SqFt = 0 in 2,534 rows (Phase 1)",PASS,"found 2,534"
+"Stored price/sqft IQR outliers = 20,020 (Phase 1)",PASS,"found 20,020"
+Age_of_Property = 2025 - Year_Built (Phase 1),PASS,
+Median price 253.87 lakhs (Phase 1),PASS,found 253.87
+City median prices span 247.97-259.52 (Phase 1),PASS,
+All 500 localities occur in all 42 cities (Phase 1 statement),FLAG,499 of 500 do; Locality_117 appears in only 41 cities
+Every locality occurs in at least 41 of 42 cities (Phase 1 conclusion 'labels are not geographic' still holds),PASS,
+"Saved cleaned file has 250,000 rows and 26 columns",PASS,"(250000, 26)"
+"Saved features file has the same 250,000 rows",PASS,"(250000, 36)"
+No target columns were written,PASS,
+Saved original columns equal the raw data after a save-and-reload,PASS,
